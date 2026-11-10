@@ -1,5 +1,5 @@
-// Rebuilds the normal from its RG channels.
 shader_type canvas_item;
+// Rebuilds the normal from its RG channels.
 
 /** Normal map storing only the X and Y axes in the RG channels. */
 uniform sampler2D normal_rg;

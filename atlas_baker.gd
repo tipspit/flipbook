@@ -1,11 +1,11 @@
 @tool
 class_name FlipbookBaker
-## Packs frame and normal PNGs into a fast atlas the flipbook rebuilds the animation from.
 extends Node
+## Packs frame and normal PNGs into a fast atlas the flipbook rebuilds the animation from.
 
 ## Set the diffuse frames directory. All the PNGs are the same size.
 @export_dir var dir_diffuse: String = ""
-## Set the normal maps directory. Same PNGs names, 1/n the size. Folder name unlike the diffuse one.
+## Set the normal maps directory. Same PNG names, 1/n the size. Folder name unlike the diffuse one.
 @export_dir var dir_normal: String = ""
 ## Set the directory the baker writes its atlas folder into.
 @export_dir var dir_out: String = ""
@@ -160,8 +160,8 @@ func _bake() -> void:
 func _make_slot(src: Image, tile_rect: Rect2i, gutter: int, slot_px: Vector2i) -> Image:
 	var full: Rect2i = tile_rect.grow(gutter)
 	var real: Rect2i = full.intersection(Rect2i(Vector2i.ZERO, src.get_size()))
-	var used: Rect2i = Rect2i(real.position - full.position, real.size)
-	var slot: Image = Image.create(slot_px.x, slot_px.y, false, Image.FORMAT_RGBA8)
+	var used := Rect2i(real.position - full.position, real.size)
+	var slot := Image.create(slot_px.x, slot_px.y, false, Image.FORMAT_RGBA8)
 	
 	# Build the slot from the frame and return it for interior or single tiles.
 	slot.blit_rect(src, real, used.position)

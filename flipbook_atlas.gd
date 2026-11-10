@@ -1,7 +1,7 @@
 @tool
 class_name FlipbookAtlas
-## Properties of the atlas.
 extends Resource
+## Properties of the atlas.
 
 @export_group("Directories")
 ## Directory of the diffuse pages.
